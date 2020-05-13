@@ -1,0 +1,17 @@
+/*Learnt this concept today... inner function doesn't have access to 'this' , that's why undefined is was coming.
+The other solution could be using bind method which would give inner function access to 'this'*/
+
+const numbers = {
+  numberA: 5,
+  numberB: 10,
+  sum: function() {
+  self = this;
+    //console.log(this === numbers)
+    function calculate() {
+      //console.log(this === numbers)
+  return self.numberA + self.numberB;
+    }
+    return calculate();
+  }
+};
+document.write(numbers.sum());
